@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      <%= yield :title %>|Ruby on Rails Tutorial Sample App
+      <%= full_title(yield :title) %>
     </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +12,16 @@
   </head>
 
   <body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <%= link_to "Sample app","#",id: "logo" %>
+      <nav class="nav navbar-nav navbar-right">
+        <%= link_to %>
+        <%= link_to %>
+        <%= link_to %>
+        </nav>
+    </div>
+  </header>
     <%= yield %>
   </body>
 </html>
