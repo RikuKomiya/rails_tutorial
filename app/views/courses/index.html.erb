@@ -1,0 +1,10 @@
+<% provide :title, "講義一覧" %>
+<h1>講義一覧</h1>
+<ul>
+  <% @courses.each do |course| %>
+
+  <li><%= course.course_name %></li>
+    <%= link_to "編集",edit_course_path(course)%>
+
+    <%end %>
+</ul>

@@ -14,14 +14,22 @@
   <body>
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <%= link_to "Sample app","#",id: "logo" %>
+      <%= link_to "ClassChat",root_url,id: "logo" %>
       <nav class="nav navbar-nav navbar-right">
-        <%= link_to %>
-        <%= link_to %>
-        <%= link_to %>
-        </nav>
+        <%= link_to "講義登録", new_course_path, class:"link_to"%>
+        <%= link_to "講義一覧", courses_path, class:"link_to"%>
+      </nav>
     </div>
   </header>
+  <div class="container">
+    <% flash.each do |msg_type, msg| %>
+      <div class="alert alert-success"><%= msg %></div>
+    <% end %>
     <%= yield %>
+  </div>
+  <footer>
+
+  </footer>
+  <%= debug(params)if Rails.env.development? %>
   </body>
 </html>

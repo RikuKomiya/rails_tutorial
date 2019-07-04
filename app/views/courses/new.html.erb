@@ -1,0 +1,102 @@
+<% provide(:title,"講義登録") %>
+<h1> 講義登録　</h1>
+<div><%= render 'shared/error_messages' %></div>
+<!--フォーム-->
+<!--講義名-->
+<div class="row course-form">
+  <div class="col-md-1 col-md-offset-3">
+    <%= form_for(@course) do |f| %>
+      <%= f.label :course_name,"講義名" %>
+  </div>
+  <div class="col-md-4 ">
+    <%= f.text_field :course_name ,class: "input-name"%>
+  </div>
+</div>
+<!--  教授名    -->
+<div class="row course-form">
+  <div class="col-md-1 col-md-offset-3">
+    <%= f.label :professor,"教授名" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.text_field :professor,class: "input-name" %>
+
+    </div>
+  </div>
+
+        <!--学期-->
+ <div class="row course-form">
+   <div class="col-md-1 col-md-offset-3">
+      <%= f.label :sem,"学期" %>
+   </div>
+   <div class="col-md-6">
+     <label>
+       <%= f.radio_button :sem, 0, checked:"checked"%>
+       春期
+     </label>
+     <label>
+       <%= f.radio_button :sem, 1%>
+       秋期
+     </label>
+   </div>
+ </div>
+<!--時間割-->
+<div class="row course-form">
+  <div class="col-md-1 col-md-offset-3">
+    <%= f.label :period,"時間" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.number_field :period, min: 1,max: 5,value:1,class: "input-period  "%>
+    <%= f.label :period,"限目" %>
+  </div>
+</div>
+
+<!--曜日-->
+<div class="row course-form">
+  <div class="col-md-1 col-md-offset-3">
+    <%= f.label :wday, "曜日" %>
+  </div>
+  <div class="col-md-6">
+    <label>
+      <%= f.radio_button :wday, 1, checked:"checked"%>
+      月
+    </label>
+    <label>
+      <%= f.radio_button :wday, 2%>
+      火
+    </label>
+    <label>
+    <%= f.radio_button :wday, 3%>
+    水
+  </label>
+    <label>
+      <%= f.radio_button :wday,4 %>
+      木
+    </label>
+    <label>
+      <%= f.radio_button :wday, 5%>
+      金
+    </label>
+    <label>
+      <%= f.radio_button :wday, 6%>
+      土
+    </label>
+  </div>
+</div>
+
+
+
+
+<div class="row course-form">
+  <div class="col-md-2 col-md-offset-5">
+    <section class="submit-btn">
+      <%= f.submit "登録", class:"btn btn-primary" %>
+    </section>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
