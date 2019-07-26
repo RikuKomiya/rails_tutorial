@@ -1,9 +1,27 @@
 @import "bootstrap-sprockets";
-@import "bootstrap";
-
-body {
-  padding-top: 60px;
+@import "bootstrap";　
+html,body{
+  height: 100vh;
 }
+body {
+  margin-top: 60px;
+
+
+
+}
+.bg{
+  background-color: #e8e8e8;
+}
+
+.bg_home {
+  background-image: url('https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1532&q=80');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  //background-color: gray;
+  height: 100%;
+}
+
 
 section {
   overflow: auto;
@@ -12,6 +30,14 @@ section {
 textarea {
   resize: vertical;
 }
+.container {
+  width: 100%;
+
+
+}
+
+
+
 
 .center {
   text-align: center;
@@ -48,6 +74,15 @@ p {
 ul{
   list-style: none;
 }
+ul li{
+  font-size: 30px;
+  display: inline;
+}
+
+.course-btn{
+  //width :50px;
+  //height: 30px;
+}
 #logo {
   float: left;
   margin-right: 10px;
@@ -58,10 +93,12 @@ ul{
   font-weight: bold;
 }
 
+
 #logo:hover {
   color: #fff;
   text-decoration: none;
 }
+
 
 .link_to {
   float: right;
@@ -103,4 +140,72 @@ ul{
   width:100%;
   mergin_top: 45px;
   @include box_sizing
+}
+
+.courses {
+  margin-top: 30px;
+  border-bottom: solid;
+  border-color: #999999;
+  li {
+    font-size: 30px;
+  }
+}
+
+li{
+  list-style: none;
+}
+
+.home_logo{
+  margin-top: 10% ;
+}
+
+//course#show
+.micropost_container{
+  ol{
+    padding-left: 0px;
+  }
+}
+
+.micropost_text{
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 5px;
+  .content{
+    display: block;
+    text-align: center;
+    margin-bottom: 0px;
+    word-wrap: break-word;
+    font-size: 15px;
+  }
+  .content_name{
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+  .timestamp{
+    text-align: right;
+    margin-top: 10px;
+    padding-right: 20px;
+    font-size: 15px;
+    color: gray;
+    display: block;
+  }
+ }
+
+.content-form-block{
+  text-align: center;
+  margin-bottom: 20px;
+  .content-form{
+    width: 100%;
+    height: 50px;
+   display: block;
+    font-size: large;
+    text-align: center;
+  }
+}
+
+.content-btn{
+  margin-top: 10px;
 }

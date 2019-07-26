@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_023815) do
+ActiveRecord::Schema.define(version: 2019_07_07_124340) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2019_07_04_023815) do
     t.integer "wday"
     t.integer "sem"
     t.string "professor"
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id", "created_at"], name: "index_microposts_on_course_id_and_created_at"
+    t.index ["course_id"], name: "index_microposts_on_course_id"
   end
 
 end

@@ -1,35 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>
-      <%= full_title(yield :title) %>
-    </title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= render "shared/head" %>
 
   <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="bg">
+  <%= render "layouts/header" %>
     <div class="container">
-      <%= link_to "ClassChat",root_url,id: "logo" %>
-      <nav class="nav navbar-nav navbar-right">
-        <%= link_to "講義登録", new_course_path, class:"link_to"%>
-        <%= link_to "講義一覧", courses_path, class:"link_to"%>
-      </nav>
+      <%= render "shared/flash" %>
+      <%= yield %>
     </div>
-  </header>
-  <div class="container">
-    <% flash.each do |msg_type, msg| %>
-      <div class="alert alert-success"><%= msg %></div>
-    <% end %>
-    <%= yield %>
   </div>
-  <footer>
-
-  </footer>
-  <%= debug(params)if Rails.env.development? %>
   </body>
+
+  <%= debug(params)if Rails.env.development? %>
 </html>

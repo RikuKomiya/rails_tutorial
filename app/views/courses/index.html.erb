@@ -1,10 +1,26 @@
 <% provide :title, "講義一覧" %>
 <h1>講義一覧</h1>
-<ul>
+<%= will_paginate %>
+
   <% @courses.each do |course| %>
+  <ul class="courses">
+    <div class="row ">
 
-  <li><%= course.course_name %></li>
-    <%= link_to "編集",edit_course_path(course)%>
+    <div class="col-md-3 col-md-offset-1 ">
 
-    <%end %>
+      <li><%= link_to course.course_name, course %></li>
+    </div>
+      <div class="col-md-3 ">
+        <li class=""><%= course.professor %></li>
+      </div>
+    <div class="col-md-3 " >
+      <%= link_to "編集",edit_course_path(course),class: "btn btn-info course-btn"%>
+      <%= link_to "削除",course_path(course), method: :delete, class: "btn btn-info course-btn"%>
+    </div>
+
+  </div>
+
+
 </ul>
+<%end %>
+<%= will_paginate %>

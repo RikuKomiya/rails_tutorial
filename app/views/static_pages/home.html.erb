@@ -1,3 +1,35 @@
-<% provide :title, "Home" %>
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+<!DOCTYPE html>
+<html>
+<%= render "shared/head" %>
+
+<body style="margin-top: 0">
+<div class="bg_home">
+  <header>
+      <nav>
+        <%= link_to "講義登録", new_course_path, class:"link_to"%>
+        <%= link_to "講義一覧", courses_path, class:"link_to"%>
+      </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <%= render "shared/flash" %>
+
+      <% provide :title, "Home" %>
+      <div class="home_logo">
+        <div style="color: white">
+          <h1> ClassChat</h1>
+        </div>
+        <div style="text-align: center">
+          <input type="text">
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+
+<%#= debug(params)if Rails.env.development? %>
+</html>
+

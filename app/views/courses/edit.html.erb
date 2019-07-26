@@ -68,170 +68,40 @@
           <%= f.label :wday, "曜日" %>
         </div>
         <div class="col-md-6">
-        <% case @course.wday %>
-          <% when 1 %>
-            <label>
-              <%= f.radio_button :wday, 1, checked:"checked"%>
-              月
-            </label>
-            <label>
-              <%= f.radio_button :wday, 2%>
-              火
-            </label>
-            <label>
-              <%= f.radio_button :wday, 3%>
-              水
-            </label>
-            <label>
-              <%= f.radio_button :wday,4 %>
-              木
-            </label>
-            <label>
-              <%= f.radio_button :wday, 5%>
-              金
-            </label>
-            <label>
-              <%= f.radio_button :wday, 6%>
-              土
-            </label>
-          <% when 2 %>
-            <label>
-              <%= f.radio_button :wday, 1%>
-              月
-            </label>
-            <label>
-              <%= f.radio_button :wday, 2,checked:"checked"%>
-              火
-            </label>
-            <label>
-              <%= f.radio_button :wday, 3%>
-              水
-            </label>
-            <label>
-              <%= f.radio_button :wday,4 %>
-              木
-            </label>
-            <label>
-              <%= f.radio_button :wday, 5%>
-              金
-            </label>
-            <label>
-              <%= f.radio_button :wday, 6%>
-              土
-            </label>
-          <% when 3 %>
-            <label>
-              <%= f.radio_button :wday, 1%>
-              月
-            </label>
-            <label>
-              <%= f.radio_button :wday, 2%>
-              火
-            </label>
-            <label>
-              <%= f.radio_button :wday, 3, checked:"checked"%>
-              水
-            </label>
-            <label>
-              <%= f.radio_button :wday,4 %>
-              木
-            </label>
-            <label>
-              <%= f.radio_button :wday, 5%>
-              金
-            </label>
-            <label>
-              <%= f.radio_button :wday, 6%>
-              土
-            </label>
-          <% when 4 %>
-            <label>
-              <%= f.radio_button :wday, 1%>
-              月
-            </label>
-            <label>
-              <%= f.radio_button :wday, 2%>
-              火
-            </label>
-            <label>
-              <%= f.radio_button :wday, 3%>
-              水
-            </label>
-            <label>
-              <%= f.radio_button :wday,4, checked:"checked" %>
-              木
-            </label>
-            <label>
-              <%= f.radio_button :wday, 5%>
-              金
-            </label>
-            <label>
-              <%= f.radio_button :wday, 6%>
-              土
-            </label>
-          <% when 5 %>
-            <label>
-              <%= f.radio_button :wday, 1%>
-              月
-            </label>
-            <label>
-              <%= f.radio_button :wday, 2%>
-              火
-            </label>
-            <label>
-              <%= f.radio_button :wday, 3%>
-              水
-            </label>
-            <label>
-              <%= f.radio_button :wday,4 %>
-              木
-            </label>
-            <label>
-              <%= f.radio_button :wday, 5, checked:"checked"%>
-              金
-            </label>
-            <label>
-              <%= f.radio_button :wday, 6%>
-              土
-            </label>
-          <% when 6 %>
-            <label>
-              <%= f.radio_button :wday, 1%>
-              月
-            </label>
-            <label>
-              <%= f.radio_button :wday, 2%>
-              火
-            </label>
-            <label>
-              <%= f.radio_button :wday, 3%>
-              水
-            </label>
-            <label>
-              <%= f.radio_button :wday,4 %>
-              木
-            </label>
-            <label>
-              <%= f.radio_button :wday, 5%>
-              金
-            </label>
-            <label>
-              <%= f.radio_button :wday, 6, checked:"checked"%>
-              土
-            </label>
-            <% end %>
+          <label>
+            <%= f.radio_button :wday, 1, checked:@mon%>
+            月
+          </label>
+          <label>
+            <%= f.radio_button :wday, 2, checked: @tue%>
+            火
+          </label>
+          <label>
+            <%= f.radio_button :wday, 3,checked:@wen%>
+            水
+          </label>
+          <label>
+            <%= f.radio_button :wday,4 ,checked:@thu%>
+            木
+          </label>
+          <label>
+            <%= f.radio_button :wday, 5,checked:@fri%>
+            金
+          </label>
+          <label>
+            <%= f.radio_button :wday, 6,checked:@sat%>
+            土
+          </label>
 
         </div>
       </div>
 
 
 
-<!-- 登録ボタン-->
+<!-- 編集ボタン-->
 <div class="row course-form">
   <div class="col-md-2 col-md-offset-5">
-    <section class="submit-btn">
-      <%= f.submit "登録", class:"btn btn-primary" %>
-    </section>
+      <%= f.submit "編集", class:"btn btn-primary" %>
 <% end %>
 </div>
 </div>
