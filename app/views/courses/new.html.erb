@@ -5,7 +5,7 @@
 <!--講義名-->
 <div class="row course-form">
   <div class="col-md-1 col-md-offset-3">
-    <%= form_for(@course) do |f| %>
+    <%= form_for(@course, url: {controller: 'courses',action: 'create'}) do |f| %>
       <%= f.label :course_name,"講義名" %>
   </div>
   <div class="col-md-4 ">

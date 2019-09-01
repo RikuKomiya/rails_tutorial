@@ -1,35 +1,27 @@
 
-<!DOCTYPE html>
-<html>
-<%= render "shared/head" %>
-
-<body style="margin-top: 0">
-<div class="bg_home">
-  <header>
-      <nav>
-        <%= link_to "講義登録", new_course_path, class:"link_to"%>
-        <%= link_to "講義一覧", courses_path, class:"link_to"%>
-      </nav>
-  </header>
-
-  <main>
-    <div class="container">
-      <%= render "shared/flash" %>
-
-      <% provide :title, "Home" %>
-      <div class="home_logo">
-        <div style="color: white">
-          <h1> ClassChat</h1>
-        </div>
-        <div style="text-align: center">
-          <input type="text">
-        </div>
-      </div>
+<div class = "row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="course-nav">
+      <ul>
+        <li>全カリ</li>
+        <li>経営学部</li>
+      </ul>
     </div>
-  </main>
-</div>
-</body>
+    <div class="current_courses">
+      <% if @current_courses.any? %>
+      <ul>
+        <% @current_courses.each do |current_course| %>
+        <li><%= link_to current_course.course_name, course_path(current_course) %></li>
+        <% end %>
+      </ul>
 
-<%#= debug(params)if Rails.env.development? %>
-</html>
+        <% elsif @current_courses.empty? %>
+      <h3>現在講義中の授業はありません</h3>
+        <% end %>
+    </div>
+
+  </div>
+</div>
+
+
 

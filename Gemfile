@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.3'
 gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'bcrypt'
 
 gem 'will_paginate', '~> 3.1.7'
 gem 'bootstrap-will_paginate'
@@ -69,6 +70,8 @@ group :test do
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :production do

@@ -5,4 +5,6 @@ class Course < ApplicationRecord
   validates :sem, presence: true
   validates :wday, presence: true
   validates :professor, presence: true
+
+
 end
