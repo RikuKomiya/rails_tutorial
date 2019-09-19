@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
 
 
-  get 'users/new'
-  get 'users/create'
-  get 'users/update'
-  get 'users/destroy'
+  devise_for :users, controllers: {
+      sessions: 'users/sessions'
+  }
+
+
   root 'static_pages#home'
   get 'static_pages/home'
   get 'static_pages/help'
@@ -13,16 +14,13 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   get  'signup',  to: 'users#new'
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
 
 
   resources :courses do
   resources :microposts
   end
 
-  resources :users
+
 
 
 

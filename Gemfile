@@ -6,9 +6,12 @@ ruby '2.3.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 gem 'bootstrap-sass'
-gem 'bootstrap'
+#
 gem 'jquery-rails'
 gem 'bcrypt'
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'
+gem 'devise'
 
 gem 'will_paginate', '~> 3.1.7'
 gem 'bootstrap-will_paginate'
