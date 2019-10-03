@@ -1,33 +1,45 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<div class="userform-bg">
+  <div class="form-bg">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control" %>
-    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="session-form">
+        <h1>Sign up</h1>
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "" %>
+          <span data-placeholder="Email"></span>
+        </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password",class: "form-control" %>
-    </div>
+        <div class="field">
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control" %>
-    </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up",class: "btn btn-primary" %>
-    </div>
-<% end %>
+          <%= f.password_field :password, autocomplete: "new-password",class: "" %>
+          <% if @minimum_password_length %>
+            <span data-placeholder="Password (<%= @minimum_password_length %> characters minimum)"></span>
+          <% end %>
+        </div>
 
-<%= render "devise/shared/links" %>
+        <div class="field" style="margin-bottom: 5px">
+
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "" %>
+          <span data-placeholder="Password Confirmation"></span>
+        </div>
+
+        <div class="actions">
+          <div class="btn-wrapper">
+            <%= f.submit "Sign up" , class:"form-btn"%>
+          </div>
+          <div class="session-links">
+            <%= render "devise/shared/links" %>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    <% end %>
 </div>
-</div>
+
+
+
+

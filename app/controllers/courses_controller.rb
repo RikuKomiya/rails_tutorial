@@ -10,12 +10,17 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    if @course.save
+    begin
+      if @course.save
       flash[:success] = "登録完了"
       redirect_to  @course
-    else
+      else
       render 'courses/new'
-    end
+      end
+    rescue
+      flash.now[:danger] = "ダブってるでー"
+      render'courses/new'
+      end
   end
 
   def show
@@ -46,6 +51,10 @@ class CoursesController < ApplicationController
     @course.delete
     redirect_to courses_path
   end
+
+
+
+
   private
 
   def course_params

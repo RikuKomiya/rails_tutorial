@@ -1,10 +1,11 @@
 class MicropostsController < ApplicationController
   def create
     @course = Course.find(params[:course_id])
-    @micropost = @course.microposts.create(micropost_params)
+    @micropost = @course.microposts.new(micropost_params)
 
     if @micropost.save
-     redirect_to @course
+      redirect_to @course
+
     else
       render "courses/show"
     end

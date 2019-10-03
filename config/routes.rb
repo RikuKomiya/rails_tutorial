@@ -2,9 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users, controllers: {
-      sessions: 'users/sessions'
-  }
+  devise_for :users
 
 
   root 'static_pages#home'
@@ -14,10 +12,13 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   get  'signup',  to: 'users#new'
 
-
-
+  resource :users
+  resources :user_courses
   resources :courses do
   resources :microposts
+    collection{
+      get "search"
+    }
   end
 
 

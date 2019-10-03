@@ -1,0 +1,7 @@
+<%= form_tag(search_courses_path) do%>
+  <%= text_field_tag :course_name," ",placeholder:"講義名",class:"form-control" %>
+  <%= submit_tag "検索" %>
+
+<% end %>
+
+<%= @courses %>

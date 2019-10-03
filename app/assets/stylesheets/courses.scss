@@ -1,3 +1,173 @@
 // Place all the styles related to the Courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.show-wrapper{
+  margin-top: 80px;
+  max-width: 60vw;
+  //height: 100vh;
+  border-right: 2px solid #f1f1f1;
+
+}
+.show-header{
+  background-color: white;
+  border-bottom: #f1f1f1;
+  width: 100vw;
+  height: 80px;
+  position: fixed;
+  border-bottom: 2px solid #f1f1f1;
+  z-index: 99;
+  .show-logo{
+    padding: 30px 10px;
+    width: 70vw;
+    display: inline-block;
+    h3{
+      margin-top: 30px;
+      margin-left: 30px;
+      padding-top: 20px;
+      display: inline;
+      font-size: 3rem;
+      span{
+        font-size: 1.5rem;
+        margin-left: 20px;
+      }
+    }
+  }
+  .btn-wrapper{
+   position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-right: 20px;
+    display: inline-block;
+    .btn{
+      height: 40px;
+      width: 80px;
+      border-radius: 3rem;
+      color: white;
+    }
+    .course-cancel-btn{
+      background-color: #666666;
+    }
+  }
+}
+
+.micropost_container{
+  margin-top: 190px;
+  max-width: 60vw;
+  height: 70vh;
+  border-right: 2px solid #f1f1f1;
+  overflow: scroll;
+  z-index: 1;
+  ol{
+    padding-left: 0px;
+  }
+}
+
+.micropost_text{
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 5px;
+  z-index: 0;
+  .content{
+    display: block;
+    text-align: center;
+    margin-bottom: 0px;
+    word-wrap: break-word;
+    font-size: 15px;
+  }
+  .content_name{
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+  }
+  .timestamp{
+    text-align: right;
+    margin-top: 10px;
+    padding-right: 20px;
+    font-size: 15px;
+    color: gray;
+    display: block;
+  }
+}
+
+.content-form-block{
+  border-right: 2px solid #f1f1f1;
+  margin-top: 80px;
+  text-align: center;
+  position: fixed;
+  width: 60vw;
+  z-index: 100;
+.content-form-w {
+  border-bottom: 2px solid #f1f1f1;
+  position: relative;
+  span::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    transition: .5s;
+    z-index: 100;
+  }
+}
+
+  .content-form{
+    width: 100%;
+    height: 50px;
+    display: block;
+    font-size: large;
+    text-align: left;
+    border:none;
+    background: none;
+    outline: none;
+    padding-top: 13px;
+    padding-left: 20px;
+    font-size: 20px;
+    &.focus + span::after{
+      width: 100%;
+    }
+  }
+}
+
+.content-btn-wrapper{
+  width: 100%;
+  height: 60px;
+  //position: absolute;
+  //top: 50%;
+  //right: 50%;
+  border-bottom: 2px solid #f1f1f1;
+  margin-top: 0;
+  padding: 10px 10px;
+  text-align: right;
+
+  //transform: translateY(-100%);
+  transition: all .5s;
+  &.active{
+    transform: translateY(0%);
+  }
+}
+
+.course-nav{
+  height: 80px;
+  width: 100%;
+  background-color: #2E2F30;
+  text-align: left;
+  ul {
+    padding-top: 20px;
+    li {
+      color: white;
+      padding-right: 15px;
+    }
+  }
+}
+
+.current_courses{
+  text-align: center;
+  width : 100%;
+  height: 160px;
+
+}
+

@@ -12,5 +12,31 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+
+//= require jquery
+//= require jquery_ujs
+//= require_tree
+
+
+$(document).ready(function () {
+   $('.field input').on('focus',function () {
+       $(this).addClass('focus');
+   });
+    $('.field input').on('blur',function () {
+        if ($(this).val() == "")
+        $(this).removeClass('focus');
+    });
+    
+    $('#sidebarCollapse').click(function () {
+        $('#sidebar').toggleClass('active');
+        $('.over-lay').toggle();
+    });
+
+    $('.content-form-w textarea').on('focus',function () {
+        $(this).addClass('focus');
+    });
+    $('.content-form-w textarea').on('blur',function () {
+        if ($(this).val() == "")
+            $(this).removeClass('focus');
+    });
+});

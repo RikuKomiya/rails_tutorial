@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_054635) do
+ActiveRecord::Schema.define(version: 2019_09_28_020322) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_09_19_054635) do
     t.integer "wday"
     t.integer "sem"
     t.string "professor"
+    t.string "major"
+    t.index ["course_name", "professor"], name: "index_courses_on_course_name_and_professor", unique: true
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -37,7 +39,6 @@ ActiveRecord::Schema.define(version: 2019_09_19_054635) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_user_courses_on_course_id"
-    t.index ["user_id", "course_id"], name: "index_user_courses_on_user_id_and_course_id", unique: true
     t.index ["user_id"], name: "index_user_courses_on_user_id"
   end
 
