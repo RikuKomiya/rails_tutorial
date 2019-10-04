@@ -9,12 +9,21 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background-color: white;
-
+  font-family: "Noto Sans JP";
 }
 .bg_show{
   background-color: #e8e8e8;
 }
 
+a{
+  text-decoration: none;
+  &:link{
+    color: inherit;
+  }
+  &:visited{
+    color: inherit;
+  }
+}
 
 
 section {
@@ -285,3 +294,43 @@ li{
   z-index: 999;
 }
 
+
+.course-search-box{
+  margin:40px 20px 20px 10px;
+  width: auto;
+  height: 250px;
+  border: 2px solid #7386D5;
+  .course-search-header{
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+    background:#7386D5 ;
+    p{
+     font-size: 2rem;
+    }
+  }
+  .course-search-body{
+    padding: 0 20px;
+  }
+  .row{
+    margin-top: 20px;
+  }
+}
+
+.search-result-wrapper{
+  margin: 20px 20px 20px 10px;
+  min-height: 240px;
+  width: auto;
+  padding: 10px;
+  .search-result-header{
+    height: 30px;
+    border-bottom: 1px solid #CCCCCC;
+  }
+}
+#search-reset{
+  background-color: #fff;
+  color: #7386D5;
+  height: 30px;
+  font-size: 1rem;
+}

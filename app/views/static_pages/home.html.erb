@@ -1,54 +1,95 @@
 
 <div class = "row">
-  <div class="col-md-6">
+
+
+  <div class="col-md-6 col-xs-12 col-md-push-6">
+    <div class="course-search-box">
+      <div class="course-search-header">
+        <div class="row" style="margin-top: 0;" >
+          <div class="col-md-5 col-md-offset-3 col-xs-8">
+            <p>授業チャットルーム検索</p>
+          </div>
+          <div class="col-xs-4">
+            <button id="search-reset"><%= link_to "検索をリセットする",root_url %></button>
+          </div>
+        </div>
+      </div>
+      <div class="course-search-body">
+        <%= form_tag(static_pages_home_path,method: :get) do%>
+          <div class="row">
+            <div class="col-xs-6">
+              <%= text_field_tag :course_name,params[:course_name],placeholder:"講義名",class:"form-control" %>
+            </div>
+            <div class="col-xs-6">
+              <%= text_field_tag :professor,params[:professor],placeholder:"教授",class:"form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <%= select_tag 'sem',options_for_select({"春学期":0,"秋学期":1},{selected:params[:sem]}),include_blank: "学期",class:"form-control" %>
+            </div>
+            <div class="col-xs-4">
+              <%= select_tag 'wday',options_for_select({"月":1,"火":2,"水":3,"木":4,"金":5,"土":6},{selected:params[:wday]}),include_blank: "曜日",class:"form-control" %>
+            </div>
+            <div class="col-xs-4">
+              <%= select_tag 'period',options_for_select({"1限":1,"2限":2,"3限":3,"4限":4,"5限":5},{selected:params[:period]}),include_blank: "時限",class:"form-control" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-2 col-xs-offset-10">
+              <%= submit_tag "検索",class:"btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="search-result-wrapper">
+      <div class="search-result-header"> 検索結果</div>
+      <div class="today_courses_list" >
+        <%if @result_courses.present? %>
+          <% @result_courses.each do |course| %>
+
+            <div class="today-course-box">
+              <%=link_to course_path(course) do %>
+                <div class="today-course-name"><%= course.course_name%></div>
+                <div class="today-course-pro">
+                  <%= course.professor %>
+                </div>
+                </div>
+              <% end %>
+          <% end %>
+
+        <% end %>
+
+      </div>
+      <% if !@result_courses.nil? %>
+        <%= will_paginate @result_courses,:previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12 col-md-pull-6">
     <div class="course-nav">
       <ul>
         <li>全カリ</li>
         <li>経営学部</li>
       </ul>
     </div>
-    <div class="current_courses">
-      <% if @current_courses.any? %>
-      <ul>
-        <% @current_courses.each do |current_course| %>
-        <li><%= link_to current_course.course_name, course_path(current_course) %></li>
-        <% end %>
-      </ul>
-
-        <% elsif @current_courses.empty? %>
-      <h3>現在講義中の授業はありません</h3>
-        <% end %>
+    <div class="current_courses 1period">
+      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 1 }%>
     </div>
-
-  </div>
-  <div class="col-md-6">
-      <%= form_tag(static_pages_home_path,method: :get) do%>
-    <%= text_field_tag :course_name,params[:course_name],placeholder:"講義名",class:"form-control" %>
-      <%= text_field_tag :professor,params[:professor],placeholder:"教授",class:"form-control" %>
-      <%= select_tag 'sem',options_for_select({"春学期":0,"秋学期":1},{selected:params[:sem]}),include_blank: "学期",class:"form-control" %>
-      <%= select_tag 'wday',options_for_select({"月":1,"火":2,"水":3,"木":4,"金":5,"土":6},{selected:params[:wday]}),include_blank: "曜日",class:"form-control" %>
-      <%= select_tag 'period',options_for_select({"1限":1,"2限":2,"3限":3,"4限":4,"5限":5},{selected:params[:period]}),include_blank: "時限",class:"form-control" %>
-      <%= submit_tag "検索",class:"btn btn-primary" %>
-
-    <% end %>
-
-    <table>
-      <tr style="border-bottom: 1px solid black">
-        <th>講義名</th>
-        <th>教授</th>
-      </tr>
-      <% if @result_courses.present? %>
-        <% @result_courses.each do |course| %>
-      <tr>
-        <td> <%=link_to course.course_name,course_path(course) %></td>
-        <td><%= course.professor %></td>
-      </tr>
-        <% end %>
-      <% end %>
-    </table>
-
-
-
+    <div class="current_courses 2period">
+      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 2 }%>
+    </div>
+    <div class="current_courses 3period">
+      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 3 }%>
+    </div>
+    <div class="current_courses 4period">
+      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 4 }%>
+    </div>
+    <div class="current_courses 5period">
+      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 5 }%>
+    </div>
   </div>
 </div>
 

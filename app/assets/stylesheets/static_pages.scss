@@ -1,3 +1,69 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.course-nav{
+  margin: 40px 20px 20px 20px;
+  height: 80px;
+  width: auto;
+  background-color: #7386aa;
+  color: #fff;
+  text-align: left;
+  ul {
+    padding-top: 20px;
+    li {
+      color: white;
+      padding-right: 15px;
+    }
+  }
+}
+
+.current_courses{
+  text-align: left;
+  width : auto;
+  min-height: 240px;
+  height: auto;
+  margin: 10px 10px 10px 20px;
+  .current_courses_title{
+    height: 30px;
+    border-bottom: 2px solid #ddd;
+  }
+
+}
+
+.today_courses_list{
+  width: 100%;
+  overflow-x: scroll;
+  .today-course-box{
+    float: left;
+    margin-top: 20px;
+    margin-right: 20px;
+    height: 130px;
+    width: 130px;
+    border: 0.5px solid #7386D5;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+    &:hover{
+     .today-course-name{
+       background-color: #fff;
+        color:  #7386D5;
+     }
+      .today-course-pro{
+        background-color: #7386D5;
+      }
+    }
+    .today-course-name{
+      background-color: #7386D5;
+      font-size: 2rem;
+      text-align: center;
+      padding-top: 10px;
+      height: 90px;
+      color: #fff;
+    }
+    .today-course-pro{
+      height: 40px;
+      text-align: center;
+      font-size: 2rem;
+      color: #666666;
+    }
+  }
+}
+

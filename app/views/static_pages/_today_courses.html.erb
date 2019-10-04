@@ -1,0 +1,21 @@
+<div class="current_courses_title">
+  今日の<%= period %>限チャットルーム
+</div>
+<div class="today_courses_list" >
+
+  <% @current_courses.get_by_period(period).each do |course| %>
+
+  <div class="today-course-box">
+    <%=link_to course_path(course) do%>
+   <div class="today-course-name"><%= course.course_name %></div>
+    <div class="today-course-pro">
+      <%= course.professor %>
+    </div>
+      <% end %>
+  </div>
+  <% end %>
+
+
+
+</div>
+
