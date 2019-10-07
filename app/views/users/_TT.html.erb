@@ -2,38 +2,38 @@
 <td><%= period %></td>
 
 <td>
-  <% if mon(period).present? %>
-  <%= link_to  mon(period).course_name,course_path(mon(period)) %>
-  <span> -<%= mon(period).professor %>-</span>
+  <% if mon(period,sem).present? %>
+  <%= link_to  mon(period,sem).course_name,course_path(mon(period,sem)) %>
+  <span> -<%= mon(period,sem).professor %>-</span>
     <% end %>
 </td>
 <td>
-  <% if tue(period).present? %>
-    <%= link_to  tue(period).course_name,course_path(mon(period)) %>
-    <span> -<%= tue(period).professor %>-</span>
+  <% if tue(period,sem).present? %>
+    <%= link_to  tue(period,sem).course_name,course_path(tue(period,sem)) %>
+    <span> -<%= tue(period,sem).professor %>-</span>
   <% end %>
 </td>
 <td>
-  <% if wed(period).present? %>
-    <%= link_to  wed(period).course_name,course_path(wed(period)) %>
-    <span> -<%= wed(period).professor %>-</span>
+  <% if wed(period,sem).present? %>
+    <%= link_to  wed(period,sem).course_name,course_path(wed(period,sem)) %>
+    <span> -<%= wed(period,sem).professor %>-</span>
   <% end %>
 </td>
 <td>
-  <% if thu(period).present? %>
-    <%= link_to  thu(period).course_name,course_path(thu(period)) %>
-    <span> -<%= thu(period).professor %>-</span>
+  <% if thu(period,sem).present? %>
+    <%= link_to  thu(period,sem).course_name,course_path(thu(period,sem)) %>
+    <span> -<%= thu(period,sem).professor %>-</span>
   <% end %>
 </td>
 <td>
-  <% if fri(period).present? %>
-    <%= link_to  fri(period).course_name,course_path(mon(period)) %>
-    <span> -<%= fri(period).professor %>-</span>
+  <% if fri(period,sem).present? %>
+    <%= link_to  fri(period,sem).course_name,course_path(fri(period,sem)) %>
+    <span> -<%= fri(period,sem).professor %>-</span>
   <% end %>
 </td>
 <td>
-  <% if sat(period).present? %>
-    <%= link_to  sat(period).course_name,course_path(sat(period)) %>
-    <span> -<%= sat(period).professor %>-</span>
+  <% if sat(period,sem).present? %>
+    <%= link_to  sat(period,sem).course_name,course_path(sat(period,sem)) %>
+    <span> -<%= sat(period,sem).professor %>-</span>
   <% end %>
 </td>

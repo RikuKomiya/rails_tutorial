@@ -2,33 +2,77 @@
 <div class="time-table">
 
   <h1>時間割</h1>
-  <table border="1">
-    <tr height = "10%">
-      <th width="10%">  </th>
-      <th width="15%">月</th>
-      <th width="15%">火</th>
-      <th width="15%">水</th>
-      <th width="15%">木</th>
-      <th width="15%">金</th>
-      <th width="15%">土</th>
-    </tr>
-    <tr height="18%">
-      <%= render partial: 'users/TT', product:@user, locals:{period: 1 }%>
-    </tr>
-    <tr height="18%">
-      <%= render partial: 'users/TT', product:@user, locals:{period: 2 }%>
-    </tr>
-    <tr height="18%">
-      <%= render partial: 'users/TT', product:@user, locals:{period: 3 }%>
-    </tr>
-    <tr height="18%">
-      <%= render partial: 'users/TT', product:@user, locals:{period: 4 }%>
-    </tr>
-    <tr height="18%">
-      <%= render partial: 'users/TT', product:@user, locals:{period: 5 }%>
-    </tr>
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-5">
+      <div class="sem-button-wrapper">
+        <button id="<%= spring %>-sem-button" class="sem-button">春学期</button><button id="<%= fall %>-sem-button" class="sem-button">秋学期</button>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <div class="spring-TT <%= spring %>-sem">
+          <table border="1">
+            <tr height = "10%">
+              <th width="10%">  </th>
+              <th width="15%">月</th>
+              <th width="15%">火</th>
+              <th width="15%">水</th>
+              <th width="15%">木</th>
+              <th width="15%">金</th>
+              <th width="15%">土</th>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 1,sem:0 }%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 2,sem:0 }%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 3 ,sem:0}%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 4 ,sem:0}%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 5 ,sem:0}%>
+            </tr>
 
-  </table>
+          </table>
+        </div>
+        <div class= "fall-TT <%= fall %>-sem">
+          <table border="1">
+            <tr height = "10%">
+              <th width="10%">  </th>
+              <th width="15%">月</th>
+              <th width="15%">火</th>
+              <th width="15%">水</th>
+              <th width="15%">木</th>
+              <th width="15%">金</th>
+              <th width="15%">土</th>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 1 ,sem:1}%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 2 ,sem:1}%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 3 ,sem:1}%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 4 ,sem:1}%>
+            </tr>
+            <tr height="18%">
+              <%= render partial: 'users/TT', product:@user, locals:{period: 5 ,sem:1}%>
+            </tr>
+
+          </table>
+        </div>
+
+      </div>
+    </div>
+
 </div>
 
 

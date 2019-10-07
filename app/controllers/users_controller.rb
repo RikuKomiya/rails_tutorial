@@ -3,5 +3,6 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @courses = @user.courses.all
+    @current_sem = current_sem
   end
 end

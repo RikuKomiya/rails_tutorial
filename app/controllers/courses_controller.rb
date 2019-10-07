@@ -58,7 +58,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:course_name,:period,:wday,:professor,:sem)
+    params.require(:course).permit(:course_name,:period,:wday,:professor,:sem,:major)
   end
 
   def day_of_week?(course)

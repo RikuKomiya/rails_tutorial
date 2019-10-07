@@ -99,21 +99,26 @@
 }
 
 //timetable
+.pre-sem{
+  display: none;
+}
 
+.sem-button{
+　margin: 10px 0px 20px 0px;
+  height: 30px;
+}
 
 .time-table{
   width: 100%;
   min-height: 100vh;
 
   padding: 0;
-  position: relative;
+
   table{
     width: 540px;
     height: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
+
+
     text-align: center;
     th{
       text-align: center;

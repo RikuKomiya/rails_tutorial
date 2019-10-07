@@ -11,38 +11,38 @@ class User < ApplicationRecord
     courses << course
   end
 
-  def course_mon(period)
-    course = courses.find_by(wday:1, period:period)
+  def course_mon(period,sem)
+    course = courses.find_by(wday:1, period:period,sem:sem)
     if course.present?
       course
     end
   end
-  def course_tue(period)
-    course = courses.find_by(wday:2, period:period)
+  def course_tue(period,sem)
+    course = courses.find_by(wday:2, period:period,sem:sem)
     if course.present?
       course
     end
   end
-  def course_wed(period)
-    course = courses.find_by(wday:3, period:period)
+  def course_wed(period,sem)
+    course = courses.find_by(wday:3, period:period,sem:sem)
     if course.present?
       course
     end
   end
-  def course_thu(period)
-    course = courses.find_by(wday:4, period:period)
+  def course_thu(period,sem)
+    course = courses.find_by(wday:4, period:period,sem:sem)
     if course.present?
       course
     end
   end
-  def course_fri(period)
-    course = courses.find_by(wday:5, period:period)
+  def course_fri(period,sem)
+    course = courses.find_by(wday:5, period:period,sem:sem)
     if course.present?
       course
     end
   end
-  def course_sat(period)
-    course = courses.find_by(wday:6, period:period)
+  def course_sat(period,sem)
+    course = courses.find_by(wday:6, period:period,sem:sem)
     if course.present?
       course
     end

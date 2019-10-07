@@ -39,4 +39,12 @@ $(document).ready(function () {
         if ($(this).val() == "")
             $(this).removeClass('focus');
     });
+    $('#current-sem-button').click(function () {
+        $('.current-sem').show();
+        $('.pre-sem').hide();
+    });
+    $('#pre-sem-button').click(function () {
+        $('.current-sem').hide();
+        $('.pre-sem').show();
+    });
 });
