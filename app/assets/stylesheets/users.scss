@@ -102,10 +102,33 @@
 .pre-sem{
   display: none;
 }
-
+.sem-button-wrapper{
+  width: 100%;
+  height: 40px;
+  text-align: center;
+}
 .sem-button{
 　margin: 10px 0px 20px 0px;
-  height: 30px;
+  width: 120px;
+  height: 40px;
+  font-size: 1.5rem;
+}
+
+#current-sem-button{
+  color: #fffffe;
+  background-color: #7386D5;
+  &.active{
+    background: #fffffe;
+    color:#7386D5 ;
+  }
+}
+#pre-sem-button{
+  background: #fffffe;
+  color:#7386D5 ;
+  &.active{
+    color: #fffffe;
+    background-color: #7386D5;
+  }
 }
 
 .time-table{
@@ -115,18 +138,42 @@
   padding: 0;
 
   table{
-    width: 540px;
+    width: 100%;
     height: 600px;
-
-
+    margin-top: 30px;
     text-align: center;
     th{
       text-align: center;
     }
+
     td{
-      span{
-        display: block;
+
+          &:first-child{
+          background-color: inherit;
+
+        }
+
+      div{
+        height: 100%;
+        width: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        background-color: #7386D5;
+        color: white;
+        border: 1px solid #999999;
+        &:hover{
+          background-color: white;
+          color: #7386D5;
+        }
+        span{
+          display: none;
+        }
       }
+
     }
   }
 }

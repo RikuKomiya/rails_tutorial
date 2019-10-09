@@ -3,37 +3,49 @@
 
 <td>
   <% if mon(period,sem).present? %>
-  <%= link_to  mon(period,sem).course_name,course_path(mon(period,sem)) %>
-  <span> -<%= mon(period,sem).professor %>-</span>
+    <div>
+      <%= link_to  mon(period,sem).course_name,course_path(mon(period,sem)) %>
+      <span> -<%= mon(period,sem).professor %>-</span>
+    </div>
     <% end %>
 </td>
 <td>
   <% if tue(period,sem).present? %>
+    <div>
     <%= link_to  tue(period,sem).course_name,course_path(tue(period,sem)) %>
     <span> -<%= tue(period,sem).professor %>-</span>
+    </div>
   <% end %>
 </td>
 <td>
   <% if wed(period,sem).present? %>
+    <div>
     <%= link_to  wed(period,sem).course_name,course_path(wed(period,sem)) %>
     <span> -<%= wed(period,sem).professor %>-</span>
+    </div>
   <% end %>
 </td>
 <td>
   <% if thu(period,sem).present? %>
+    <div>
     <%= link_to  thu(period,sem).course_name,course_path(thu(period,sem)) %>
     <span> -<%= thu(period,sem).professor %>-</span>
+    </div>
   <% end %>
 </td>
 <td>
   <% if fri(period,sem).present? %>
+    <div>
     <%= link_to  fri(period,sem).course_name,course_path(fri(period,sem)) %>
     <span> -<%= fri(period,sem).professor %>-</span>
+    </div>
   <% end %>
 </td>
 <td>
   <% if sat(period,sem).present? %>
+    <div>
     <%= link_to  sat(period,sem).course_name,course_path(sat(period,sem)) %>
     <span> -<%= sat(period,sem).professor %>-</span>
+    </div>
   <% end %>
 </td>

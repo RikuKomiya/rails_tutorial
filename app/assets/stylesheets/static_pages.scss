@@ -32,7 +32,7 @@
 
 .today_courses_list{
   width: 100%;
-
+  overflow: auto;
   .today-course-box{
     float: left;
     margin-top: 20px;
@@ -48,6 +48,7 @@
      }
       .today-course-pro{
         background-color: #7386D5;
+        color: #fff;
       }
     }
     .today-course-name{

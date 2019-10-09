@@ -42,9 +42,13 @@ $(document).ready(function () {
     $('#current-sem-button').click(function () {
         $('.current-sem').show();
         $('.pre-sem').hide();
+        $(this).removeClass('active')
+        $('#pre-sem-button').removeClass('active')
     });
     $('#pre-sem-button').click(function () {
         $('.current-sem').hide();
         $('.pre-sem').show();
+        $(this).addClass('active')
+        $('#current-sem-button').addClass('active')
     });
 });

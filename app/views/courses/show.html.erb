@@ -1,42 +1,52 @@
 
-
-  <nav class="show-header">
-    <div class="show-logo">
-      <h3>
-        <%= @course.course_name %>
-      <span>- <%= @course.professor %> -</span>
-      </h3>
-    </div>
-    <div class="show-header-btn">
-      <% if user_signed_in? %>
-      <% if !current_user.user_courses.exists?(course_id: @course.id) %>
-        <%= form_tag(user_courses_path, method: :post) do %>
-          <%= hidden_field_tag :course_id,@course.id %>
-          <div class="btn-wrapper">
-            <%= submit_tag "講義登録",class: "btn btn-success " %>
+<div class="row">
+  <div class="col-md-12">
+    <nav class="show-header">
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="show-logo">
+            <h3>
+              <%= @course.course_name %>
+              <span>- <%= @course.professor %> -</span>
+            </h3>
           </div>
-        <% end %>
-      <% else current_user.user_courses.exists?(course_id: @course.id) %>
-        <%= form_tag(user_course_path, method: :delete) do %>
-          <%= hidden_field_tag :course_id,@course.id %>
-          <div class="btn-wrapper">
-            <%= submit_tag "講義解除",class: "btn course-cancel-btn " %>
+        </div>
+        <div class="col-xs-4">
+          <div class="show-header-btn">
+            <% if user_signed_in? %>
+              <% if !current_user.user_courses.exists?(course_id: @course.id) %>
+                <%= form_tag(user_courses_path, method: :post) do %>
+                  <%= hidden_field_tag :course_id,@course.id %>
+                  <div class="btn-wrapper">
+                    <%= submit_tag "講義登録",class: "btn btn-success " %>
+                  </div>
+                <% end %>
+              <% else current_user.user_courses.exists?(course_id: @course.id) %>
+                <%= form_tag(user_course_path, method: :delete) do %>
+                  <%= hidden_field_tag :course_id,@course.id %>
+                  <div class="btn-wrapper">
+                    <%= submit_tag "講義解除",class: "btn course-cancel-btn " %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
-      <% end %>
-        <% end %>
-    </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
 
-  </nav>
 
-
-      <nav class="content-form-block">
+  <div class="row">
+    <div class="col-md-8 ">
+      <nav class="content-form-block ">
         <%= form_for @micropost,url: course_microposts_url(@course) do |f | %>
-        <div class="content-form-w" >
+          <div class="content-form-w" >
 
             <%= f.text_area :content ,class: "content-form",size: "20x10",placeholder: "ここにコメントを書いてください"%>
             <span> </span>
-            </div>
+          </div>
 
           <div class="content-btn-wrapper">
 
@@ -46,21 +56,42 @@
 
         <% end %>
       </nav>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 
-<div class="micropost_container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="micropost_container">
 
-  <ol class="microposts">
-    <% @feed.each do |micropost| %>
-      <li class="micropost_text">
-        <span class="user_name"><%= fa_icon "user-circle" %></span>
-        <span class="content"><%= micropost.content %></span>
-        <span class= "timestamp"><%= time_ago_in_words(micropost.created_at) %> ago</span>
-      </li>
-    <% end %>
+        <ol class="microposts">
+          <% @feed.each do |micropost| %>
+            <li class="micropost_text">
+              <div class="row">
+                <div class="col-xs-2">
+                  <span class="user_name"><%= fa_icon "user-circle" %></span>
+                </div>
+                <div class="col-xs-10">
+                  <div class="content-wrapper">
+                    <span class="content"><%= micropost.content %></span>
+                    <span class= "timestamp"><%= time_ago_in_words(micropost.created_at) %> ago</span>
+                  </div>
+                </div>
+              </div>
 
-  </ol>
-</div>
+
+            </li>
+          <% end %>
+
+        </ol>
+      </div>
       <%= will_paginate (@feed)%>
+
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+
 
 
 
