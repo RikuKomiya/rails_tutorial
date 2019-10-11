@@ -80,15 +80,11 @@ group :test do
 end
 
 group :production do
-<<<<<<< HEAD
  gem 'mysql2', '~> 0.4.4'
 end
 
 group :production, :staging do
     gem 'unicorn'
-=======
- gem 'mysql2', '~> 0.4.4'
->>>>>>> bc9d612a0b35fe5222dff99bbda45ccab1d60f27
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
