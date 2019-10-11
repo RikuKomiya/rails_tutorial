@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
     @today = Time.current
     @today.wday
   end
+
+  def owner_only
+    redirect_to root_url unless current_user.owner?
+  end
 end

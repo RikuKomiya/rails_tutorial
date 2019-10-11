@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :owner_only,except: [:show]
 
   def index
     @courses = Course.paginate(page:params[:page])
@@ -13,7 +14,7 @@ class CoursesController < ApplicationController
     begin
       if @course.save
       flash[:success] = "登録完了"
-      redirect_to  @course
+      redirect_to  new_course_path
       else
       render 'courses/new'
       end

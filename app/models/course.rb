@@ -7,7 +7,7 @@ class Course < ApplicationRecord
   validates :sem, presence: true
   validates :wday, presence: true
   validates :professor, presence: true
-
+  validates :faculty, presence: true
   scope  :get_by_course_name, ->(course_name){where(['course_name LIKE ?',"%#{course_name}%"])}
   scope :get_by_professor, ->(professor){where(['professor LIKE ?',"%#{professor}%"])}
   scope :get_by_sem, ->(sem) {where(sem:sem)}

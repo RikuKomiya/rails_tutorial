@@ -5,8 +5,10 @@
     </button>
   </div>
   <div class="sidebar-header">
+    <%= link_to root_url do %>
     <h3 class="logo">ClassChat</h3>
     <h3 class="s-logo">Class<br>Chat</h3>
+      <% end %>
   </div>
   <% if user_signed_in? %>
   <ul class="list-unstyled components">
@@ -29,6 +31,7 @@
         <span>Logout</span>
       <% end %>
     </li>
+    <% if current_user.owner? %>
     <li>
       <%= link_to "講義登録", new_course_path%>
     </li>
@@ -36,6 +39,7 @@
       <%= link_to "講義一覧", courses_path%>
     </li>
     </ul>
+      <% end %>
   <% else %>
     <ul>
       <li>

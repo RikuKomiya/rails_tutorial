@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :user_courses
   has_many :courses, through: :user_courses
 
+  OWNER = ['17bm008e@rikkyo.ac.jp'].freeze
+
   def take_courses(course)
     courses << course
   end
@@ -48,7 +50,9 @@ class User < ApplicationRecord
     end
   end
 
-
+  def owner?
+    OWNER.include?(email)
+  end
 
 
 end
