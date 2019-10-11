@@ -10,7 +10,7 @@
             <p>授業検索</p>
           </div>
           <div class="col-xs-4">
-            <button id="search-reset"><%= link_to "検索をリセットする",root_url %></button>
+            <button id="search-reset">検索をリセットする</button>
           </div>
         </div>
       </div>
@@ -25,15 +25,19 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-4">
+            <div class="col-xs-3">
+              <%= select_tag 'faculty',options_for_select({"全カリ":0, "経営学部":1,"文学部":2,"経済学部":3,"社会学部":4,"法学部":5},{selected:params[:faculty]}),include_blank: "学部",class:"form-control" %>
+            </div>
+            <div class="col-xs-3">
               <%= select_tag 'sem',options_for_select({"春学期":0,"秋学期":1},{selected:params[:sem]}),include_blank: "学期",class:"form-control" %>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
               <%= select_tag 'wday',options_for_select({"月":1,"火":2,"水":3,"木":4,"金":5,"土":6},{selected:params[:wday]}),include_blank: "曜日",class:"form-control" %>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-3">
               <%= select_tag 'period',options_for_select({"1限":1,"2限":2,"3限":3,"4限":4,"5限":5},{selected:params[:period]}),include_blank: "時限",class:"form-control" %>
             </div>
+
           </div>
 
           <div class="row">
@@ -71,25 +75,36 @@
   <div class="col-md-6 col-xs-12 col-md-pull-6">
     <div class="course-nav">
       <ul>
-        <li>全カリ</li>
-        <li>経営学部</li>
+        <li id="common" class="active">全カリ</li>
+        <li id="management">経営学部</li>
+        <li id="literature">文学部</li>
+        <li id="economics">経済学部</li>
+        <li id="sociology">社会学部</li>
+        <li id="low">法学部</li>
       </ul>
     </div>
-    <div class="current_courses 1period">
-      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 1 }%>
+    <div>
+      <div class="current_courses-wrapper current_courses_common active">
+        <%= render partial: 'static_pages/current_courses', locals: {current_courses: @current_courses_common} %>
+      </div>
+      <div class="current_courses-wrapper current_courses_management ">
+        <%= render partial: 'static_pages/current_courses', locals: {current_courses: @current_courses_management} %>
+      </div>
+      <div class="current_courses-wrapper current_courses_literature ">
+        <%= render partial: 'static_pages/current_courses', locals: {current_courses: @current_courses_literature} %>
+      </div>
+      <div class="current_courses-wrapper current_courses_economics">
+        <%= render partial: 'static_pages/current_courses', locals: {current_courses: @current_courses_economics} %>
+      </div>
+      <div class="current_courses-wrapper current_courses_sociology">
+        <%= render partial: 'static_pages/current_courses', locals: {current_courses: @current_courses_sociology} %>
+      </div>
+      <div class="current_courses-wrapper current_courses_low">
+        <%= render partial: 'static_pages/current_courses', locals: {current_courses: @current_courses_low} %>
+      </div>
     </div>
-    <div class="current_courses 2period">
-      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 2 }%>
-    </div>
-    <div class="current_courses 3period">
-      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 3 }%>
-    </div>
-    <div class="current_courses 4period">
-      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 4 }%>
-    </div>
-    <div class="current_courses 5period">
-      <%= render partial: 'static_pages/today_courses', product:@current_courses, locals:{period: 5 }%>
-    </div>
+
+
   </div>
 </div>
 

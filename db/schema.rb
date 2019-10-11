@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_28_020322) do
+ActiveRecord::Schema.define(version: 2019_10_09_142249) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_09_28_020322) do
     t.integer "sem"
     t.string "professor"
     t.string "major"
+    t.integer "faculty"
     t.index ["course_name", "professor"], name: "index_courses_on_course_name_and_professor", unique: true
   end
 

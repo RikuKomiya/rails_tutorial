@@ -3,7 +3,7 @@
 </div>
 <div class="today_courses_list" >
 
-  <% @current_courses.get_by_period(period).each do |course| %>
+  <% current_courses.get_by_period(period).each do |course| %>
 
   <div class="today-course-box">
     <%=link_to course_path(course) do%>
