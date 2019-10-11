@@ -1,40 +1,45 @@
-<%= provide(:title,"login") %>
+ç
 <div class="userform-bg">
-  <div class="session-form">
+<!--  <div class="row">-->
+<!--    <div class="col-md-6 col-md-offset-3">-->
+      <div class="session-form">
 
-    <h1>Log in</h1>
+        <h1>Log in</h1>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        <span data-placeholder="Email"></span>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <span data-placeholder="Email"></span>
+          </div>
+
+          <div class="field" style="margin-bottom: 25px">
+
+            <%= f.password_field :password, autocomplete: "current-password" %>
+            <span data-placeholder="Password"></span>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="remember-field">
+              <%= f.check_box :remember_me %>
+              <span>ログイン状態を保存する</span>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <div class="btn-wrapper">
+              <%= f.submit "Log in" , class:"form-btn"%>
+            </div>
+            <div class="session-links">
+              <%= render "devise/shared/links" %>
+            </div>
+
+          </div>
+        <% end %>
+
+
       </div>
 
-      <div class="field" style="margin-bottom: 25px">
+    </div>
+<!--  </div>-->
 
-        <%= f.password_field :password, autocomplete: "current-password" %>
-        <span data-placeholder="Password"></span>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="remember-field">
-          <%= f.check_box :remember_me %>
-          <span>ログイン状態を保存する</span>
-        </div>
-      <% end %>
-
-      <div class="actions">
-        <div class="btn-wrapper">
-          <%= f.submit "Log in" , class:"form-btn"%>
-        </div>
-        <div class="session-links">
-          <%= render "devise/shared/links" %>
-        </div>
-
-      </div>
-    <% end %>
-
-
-  </div>
-
-</div>
+<!--</div>-->

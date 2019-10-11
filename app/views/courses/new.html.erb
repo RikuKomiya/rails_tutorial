@@ -42,10 +42,11 @@
 <!--学部-->
       <div class="row course-form">
         <div class="col-md-1 col-md-offset-3">
-          <%= f.label :major,"学部" %>
+          <%= f.label :faculty,"学部" %>
         </div>
         <div class="col-md-6 ">
-          <%= f.select(:major, [['全学年共通', 0],['経営学部', 1]]) %>
+          <%= f.select(:faculty, [['全学年共通', 0],['経営学部', 1],['文学部',2],['経済学部',3],
+          ['社会学部',4],['法学部',5]]) %>
         </div>
         </div>
 <!--時間割-->

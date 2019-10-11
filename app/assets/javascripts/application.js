@@ -39,6 +39,9 @@ $(document).ready(function () {
         if ($(this).val() == "")
             $(this).removeClass('focus');
     });
+
+
+
     $('#current-sem-button').click(function () {
         $('.current-sem').show();
         $('.pre-sem').hide();
@@ -50,5 +53,57 @@ $(document).ready(function () {
         $('.pre-sem').show();
         $(this).addClass('active')
         $('#current-sem-button').addClass('active')
+    });
+
+
+    $('#common').click(function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $('.current_courses_common').addClass('active');
+        $('.current_courses_common').siblings().removeClass('active');
+    });
+    $('#management').click(function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $('.current_courses_management').addClass('active');
+        $('.current_courses_management').siblings().removeClass('active');
+    });
+    $('#literature').click(function () {
+        $(this).addClass('active')
+        $(this).siblings().removeClass('active')
+        $('.current_courses_literature').addClass('active');
+        $('.current_courses_literature').siblings().removeClass('active');
+    });
+    $('#economics').click(function () {
+        $(this).addClass('active')
+        $(this).siblings().removeClass('active')
+        $('.current_courses_economics').addClass('active');
+        $('.current_courses_economics').siblings().removeClass('active');
+    });
+    $('#sociology').click(function () {
+        $(this).addClass('active')
+        $(this).siblings().removeClass('active')
+        $('.current_courses_sociology').addClass('active');
+        $('.current_courses_sociology').siblings().removeClass('active');
+    });
+    $('#low').click(function () {
+        $(this).addClass('active')
+        $(this).siblings().removeClass('active')
+        $('.current_courses_low').addClass('active');
+        $('.current_courses_low').siblings().removeClass('active');
+    });
+    $('#search-reset').click(function () {
+        $('.course-search-body').find('.form-control').val('');
+    });
+
+    if ($(".content-form-w textarea").val().length == 0) {
+        $(".content-btn").prop("disabled", true);
+    }
+    $(".content-form-w textarea").on("keydown keyup keypress change", function() {
+        if ($(this).val().length < 1) {
+            $(".content-btn").prop("disabled", true);
+        } else {
+            $(".content-btn").prop("disabled", false);
+        }
     });
 });

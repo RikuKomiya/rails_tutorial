@@ -11,9 +11,21 @@
   ul {
     padding-top: 20px;
     li {
+      font-size: 2rem;
       color: white;
       padding-right: 15px;
+      &.active,&:hover{
+        color: limegreen;
+        border-bottom: 1px solid limegreen;
+      }
     }
+  }
+}
+
+.current_courses-wrapper{
+  display: none;
+  &.active{
+    display: block;
   }
 }
 

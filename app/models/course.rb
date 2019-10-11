@@ -13,9 +13,10 @@ class Course < ApplicationRecord
   scope :get_by_sem, ->(sem) {where(sem:sem)}
   scope :get_by_wday, ->(wday) {where(wday:wday)}
   scope :get_by_period, ->(period) {where(period:period)}
+  scope :get_by_faculty, ->(faculty){where(faculty:faculty)}
 
 
-  def self.search(course_name:"",professor:"",sem:"",wday:"",period:"")
+  def self.search(course_name:"",professor:"",sem:"",wday:"",period:"",faculty:"")
     results = nil
     if course_name.present?
       course_name = course_name.gsub(" ","")
@@ -57,6 +58,14 @@ class Course < ApplicationRecord
         results = results.get_by_period(period)
       end
     end
+    if faculty.present?
+      if results.nil?
+      faculty = faculty.to_i
+      results = get_by_faculty(faculty)
+    else
+      results = results.get_by_faculty(faculty)
+      end
+      end
      return results
 
   end

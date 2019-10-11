@@ -304,7 +304,11 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   minitest
   minitest-reporters
+<<<<<<< HEAD
   mysql2 (~> 0.4.4)
+=======
+  mysql2
+>>>>>>> bc9d612a0b35fe5222dff99bbda45ccab1d60f27
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-controller-testing
