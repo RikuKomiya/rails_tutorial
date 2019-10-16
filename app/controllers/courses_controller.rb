@@ -5,8 +5,10 @@ class CoursesController < ApplicationController
     @courses = Course.paginate(page:params[:page])
   end
 
+
   def new
     @course = Course.new
+
   end
 
   def create
