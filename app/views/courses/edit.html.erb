@@ -51,13 +51,23 @@
           <% end %>
         </div>
       </div>
+
+      <div class="row course-form">
+        <div class="col-md-1 col-md-offset-3">
+          <%= f.label :faculty,"学部" %>
+        </div>
+        <div class="col-md-6 ">
+          <%= f.select(:faculty, [['全学年共通', 0],['経営学部', 1],['文学部',2],['経済学部',3],
+                                  ['社会学部',4],['法学部',5]]) %>
+        </div>
+      </div>
       <!--時間割-->
       <div class="row course-form">
         <div class="col-md-1 col-md-offset-3">
           <%= f.label :period,"時間" %>
         </div>
         <div class="col-md-6">
-          <%= f.number_field :period, min: 1,max: 5,value:1,class: "input-period  "%>
+          <%= f.number_field :period, min: 1,max: 5,value:@course.period.to_i,class: "input-period  "%>
           <%= f.label :period,"限目" %>
         </div>
       </div>
