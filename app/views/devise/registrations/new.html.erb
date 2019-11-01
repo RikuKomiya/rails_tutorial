@@ -16,7 +16,7 @@
 
           <%= f.password_field :password, autocomplete: "new-password",class: "" %>
           <% if @minimum_password_length %>
-            <span data-placeholder="Password (<%= @minimum_password_length %> characters minimum)"></span>
+            <span data-placeholder="Password (<%= @minimum_password_length %>文字以上)"></span>
           <% end %>
         </div>
 

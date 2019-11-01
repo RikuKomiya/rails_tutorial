@@ -7,7 +7,7 @@
           <div class="show-logo">
             <h3>
               <%= @course.course_name %>
-              <span>- <%= session[:period] %> -</span>
+              <span>- <%= @course.professor %> -</span>
             </h3>
           </div>
         </div>
@@ -18,18 +18,22 @@
                 <%= form_tag(user_courses_path, method: :post) do %>
                   <%= hidden_field_tag :course_id,@course.id %>
                   <div class="btn-wrapper">
-                    <%= submit_tag "講義登録",class: "btn btn-success " %>
+                    <%= submit_tag "時間割に登録",class: "btn btn-success " %>
                   </div>
                 <% end %>
               <% else current_user.user_courses.exists?(course_id: @course.id) %>
                 <%= form_tag(user_course_path, method: :delete) do %>
                   <%= hidden_field_tag :course_id,@course.id %>
                   <div class="btn-wrapper">
-                    <%= submit_tag "講義解除",class: "btn course-cancel-btn " %>
+                    <%= submit_tag "時間割から解除",class: "btn course-cancel-btn " %>
                   </div>
                 <% end %>
               <% end %>
-            <% end %>
+              <% else %>
+                <div class="btn-wrapper">
+                  <%= link_to "時間割に登録",new_user_session_path,class: "btn btn-success " %>
+                </div>
+              <% end %>
           </div>
         </div>
       </div>
@@ -44,7 +48,7 @@
         <%= form_for @micropost,url: course_microposts_url(@course) do |f | %>
           <div class="content-form-w" >
 
-            <%= f.text_area :content ,class: "content-form",size: "20x10",placeholder: "ここにコメントを書いてください"%>
+            <%= f.text_area :content ,row: 5, class: "content-form",size: "20x10",placeholder: "ここにコメントを書いてください"%>
             <span> </span>
           </div>
 
@@ -73,8 +77,8 @@
                 </div>
                 <div class="col-xs-10">
                   <div class="content-wrapper">
-                    <span class="content"><%= micropost.content %></span>
-                    <span class= "timestamp"><%= time_ago_in_words(micropost.created_at) %> ago</span>
+                    <span class="content"><%= simple_format(h(micropost.content), {}, sanitize: false )%></span>
+                    <span class= "timestamp"><%= time_ago_in_words(micropost.created_at) %>前</span>
                   </div>
                 </div>
               </div>

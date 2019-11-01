@@ -2,6 +2,7 @@ class UserCoursesController < ApplicationController
 
 
   def create
+
     course = Course.find_by(id: params[:course_id])
     delete_duplication_courses_at_same_time(course)
     if current_user.take_courses(course)
